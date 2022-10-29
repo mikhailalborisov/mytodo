@@ -19,9 +19,8 @@ class ToDo(models.Model):
         help_text="Введите дату создания задачи",
         verbose_name="Дата создания задачи",
     )
-    resolved_at = models.DateField(
-        null=True,
-        blank=True,
+    resolved_at = models.DateTimeField(
+        auto_now_add=True,
         help_text="Введите дату выполнения задачи",
         verbose_name="Дата выполнения задачи",
     )
@@ -30,8 +29,3 @@ class ToDo(models.Model):
         help_text="Отметьте статус задачи",
         verbose_name="Статус задачи",
     )
-
-    def get_absolute_url(self):
-        # Возвращает URL-aдpec для доступа
-        # к определенному экземпляру книги.
-        return reverse("todo-detail", kwargs={"pk": self.pk})
