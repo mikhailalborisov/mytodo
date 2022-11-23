@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo_detail</title>
+</head>
+<body>
+<h1>Название задачи: {{ todo.name }}</h1>
+<p><strong>Описание:</strong> {{ todo.description }}</p>
+<p><strong>Дата создания:</strong> {{ todo.created_at }}</p>
+<p><strong>Дата выполнения:</strong> {{ todo.resolved_at }}</p>
+<p><strong>Статус:</strong>
+    {% if todo.status %}
+      Выполнено
+    {% else %}
+      Не выполнено
+    {% endif %}
+</p>
+<a href="{% url 'todo-list' %}"> Назад </a>
+</body>
+</html>
